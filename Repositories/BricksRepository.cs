@@ -42,12 +42,20 @@ namespace morning_challenge_tuesday.Repositories
 
     internal Brick Edit(Brick newBrick)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      UPDATE bricks
+      SET
+        size = @size,
+        color = @color
+      WHERE id = @Id;
+      SELECT * FROM bricks WHERE id = @Id";
+      return _db.QueryFirstOrDefault<Brick>(sql, newBrick);
     }
 
     internal void Delete(int id)
     {
-      throw new NotImplementedException();
+      string sql = "DELETE FROM bricks WHERE id = @Id;";
+      _db.Execute(sql, new { id });
     }
   }
 }
