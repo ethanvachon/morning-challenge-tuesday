@@ -1,0 +1,10 @@
+USE firstdatabase123;
+
+
+CREATE TABLE bricks (
+  id INT NOT NULL AUTO_INCREMENT,
+  color VARCHAR(255) NOT NULL,
+  size INT NOT NULL,
+
+  PRIMARY KEY(id)
+);
